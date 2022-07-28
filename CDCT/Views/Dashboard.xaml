@@ -1,0 +1,29 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDCT.Views"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:vm="clr-namespace:CDCT.Models"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:Controles="clr-namespace:CDCT.Controles" x:Class="CDCT.Views.Dashboard"
+        mc:Ignorable="d" Height="700" Width="1350">
+    <UserControl.DataContext>
+        <vm:DashboardModel/>
+    </UserControl.DataContext>
+    <Grid Background="White">
+        <Grid Margin="82,3,56,-3">
+            <StackPanel Margin="786,46,0,71" HorizontalAlignment="Left" Width="398">
+
+                <TextBlock TextAlignment="center" Margin="0,20,0,20" Text="Estados de Pedidos Diarios" Style="{DynamicResource TextTopBar}" Foreground="Black" Width="370"/>
+                <Controles:GraficosCirculares FontSize="20" Style="{DynamicResource TextTopBar}" Foreground="Black" RenderTransformOrigin="0.5,0.5" Height="497" Width="330"/>
+
+            </StackPanel>
+        </Grid>
+        <Grid Margin="24,0,499,0" Height="652" VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource TextTopBar}" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Height="20" Margin="0,48,0,0"><Run Language="es-es" Text="Listado de Actualizaciones 24H"/></TextBlock>
+            <DataGrid x:Name="UltimasActualizaciones"  Margin="29,112,37,84"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,80 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDCT.Helper"
+        xmlns:views="clr-namespace:CDCT.Views"
+        xmlns:Hamburger="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        x:Class="CDCT.Inicio"
+        mc:Ignorable="d"
+        Title="Inicio" Height="700" Width="1350"
+        WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    MinWidth="428"
+        Background="Transparent"
+    >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <Style x:Key="NavigationContentStyle" TargetType="ContentControl">
+            <Setter Property="ContentTemplate" Value="{StaticResource DashboardViewTemplate}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                             Value="Pedidos">
+                    <Setter Property="ContentTemplate" Value="{StaticResource PedidosViewTemplate}"/>
+                </DataTrigger>
+                <!--<DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
+                             Value="Cloud">
+                    <Setter Property="ContentTemplate" Value="{StaticResource RastreoViewTemplate}"/>
+                </DataTrigger>-->
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid>
+        
+        <Grid x:Name="ListBox">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="NavigationMenuListBox"
+                 Style="{StaticResource NavigationListBoxStyle}"
+                 ItemContainerStyle="{DynamicResource NavigationListBoxItemStyle}"
+                 ItemTemplate="{DynamicResource NavigationDataTemplate}"
+                 ItemsSource="{StaticResource NavigationMenuItems}" Margin="0,49,0,0" SelectionChanged="NavigationMenuListBox_SelectionChanged"/>
+
+            <ContentControl x:Name="Contenido"  Style="{StaticResource NavigationContentStyle}" Margin="2,48,1,-1" Grid.Column="1"/>
+        </Grid>
+        <Grid x:Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="52" Margin="0,-2,0,0">
+            <TextBlock Text="{Binding title, Mode=TwoWay}" Style="{DynamicResource TextTopBar}"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <!--Text="Dashboard"-->
+            <StackPanel x:Name ="StackX" Margin="0,0,10,0" Height="35" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="Minimice" Width="35" Background="#33BFFF" Content="-" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,0,4,0"/>
+                <Button x:Name="Exit" Width="35" Background="#FF3333" Content="X" Foreground="White" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+
+        <!--<Grid>
+            
+                <Hamburger:HamburgerMenu Margin="0,34,0,0" HorizontalAlignment="Left" MenuIconColor="Black" Background="#33BFFF">
+                <Hamburger:HamburgerMenuItem Text="Dashboard">
+                    <icons:PackIconMaterialDesign>
+                        
+                    </icons:PackIconMaterialDesign>
+                </Hamburger:HamburgerMenuItem>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+            </Hamburger:HamburgerMenu>
+        </Grid>-->
+    </Grid>
+</Window>
