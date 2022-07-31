@@ -12,8 +12,11 @@
         mc:Ignorable="d"
         Title="Inicio" Height="700" Width="1350"
         WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
-    MinWidth="428"
+        WindowStyle="None"
+        MaxHeight="700"
+             MaxWidth="1350"
+             MinHeight="700"
+             MinWidth="1350"
         Background="Transparent"
     >
     <Window.Resources>
@@ -31,14 +34,17 @@
                 </DataTrigger>-->
             </Style.Triggers>
         </Style>
-    </Window.Resources>
 
+        <Style x:Key="ButtonCorner">
+            <Setter Property="Border.CornerRadius" Value="8,8,8,8" />
+        </Style>
+    </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="50"/>
     </WindowChrome.WindowChrome>
 
     <Grid>
-        
+
         <Grid x:Name="ListBox">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -49,9 +55,9 @@
                  Style="{StaticResource NavigationListBoxStyle}"
                  ItemContainerStyle="{DynamicResource NavigationListBoxItemStyle}"
                  ItemTemplate="{DynamicResource NavigationDataTemplate}"
-                 ItemsSource="{StaticResource NavigationMenuItems}" Margin="0,49,0,0" SelectionChanged="NavigationMenuListBox_SelectionChanged"/>
+                 ItemsSource="{StaticResource NavigationMenuItems}" Margin="0,50,0,0" SelectionChanged="NavigationMenuListBox_SelectionChanged"/>
 
-            <ContentControl x:Name="Contenido"  Style="{StaticResource NavigationContentStyle}" Margin="2,48,1,-1" Grid.Column="1"/>
+            <ContentControl x:Name="Contenido"  Style="{StaticResource NavigationContentStyle}" Margin="2,48,1,-1" Grid.Column="1" Foreground="White"/>
         </Grid>
         <Grid x:Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="52" Margin="0,-2,0,0">
             <TextBlock Text="{Binding title, Mode=TwoWay}" Style="{DynamicResource TextTopBar}"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -60,6 +66,19 @@
                 <Button x:Name="Minimice" Width="35" Background="#33BFFF" Content="-" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,0,4,0"/>
                 <Button x:Name="Exit" Width="35" Background="#FF3333" Content="X" Foreground="White" FontSize="20" FontWeight="Bold"/>
             </StackPanel>
+            <Button ToolTip="Icon" Style="{DynamicResource TabButton}" Background="#FF060606" Margin="1200,-7,93,-10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <WrapPanel>
+                    <icons:PackIconMaterialDesign x:Name="MenuItemIcon" VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" Kind="AccountCircle" Foreground="White" Width="40" Height="40"/>
+                </WrapPanel>
+
+            </Button>
         </Grid>
 
         <!--<Grid>

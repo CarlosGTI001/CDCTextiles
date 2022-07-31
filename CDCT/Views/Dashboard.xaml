@@ -16,7 +16,7 @@
         <Grid Margin="82,3,56,-3">
             <StackPanel Margin="786,46,0,71" HorizontalAlignment="Left" Width="398">
 
-                <TextBlock TextAlignment="center" Margin="0,20,0,20" Text="Estados de Pedidos Diarios" Style="{DynamicResource TextTopBar}" Foreground="Black" Width="370"/>
+                <TextBlock TextAlignment="Center" Margin="0,20,0,20" Text="Estados de Pedidos Diarios" Style="{DynamicResource TextTopBar}" Foreground="Black" Width="370"/>
                 <Controles:GraficosCirculares FontSize="20" Style="{DynamicResource TextTopBar}" Foreground="Black" RenderTransformOrigin="0.5,0.5" Height="497" Width="330"/>
 
             </StackPanel>

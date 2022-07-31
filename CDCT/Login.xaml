@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CDCT"
         mc:Ignorable="d"
         WindowStyle="None"
-        Title="Login" Height="450" Width="299"
+        Title="Login" Height="450" Width="684"
         ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
         >
     <WindowChrome.WindowChrome>
@@ -14,20 +14,18 @@
     </WindowChrome.WindowChrome>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="197*"/>
-            <RowDefinition Height="28*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="151*"/>
-            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Grid.ColumnSpan="2" Height="35">
+        <Grid Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="35">
             <StackPanel Name ="StackX" Height="35" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Button x:Name="Minimice" Width="35" Background="#33BFFF" Content="-" Foreground="White" FontSize="30" FontWeight="Bold"/>
                 <Button x:Name="Exit" Width="35" Background="#FF3333" Content="X" Foreground="White" FontSize="20" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
-        <StackPanel Grid.ColumnSpan="2" Margin="0,34,0,0" Grid.RowSpan="2">
+        <StackPanel Margin="-1,35,0,-1" HorizontalAlignment="Left" Width="337">
             <Image Height="182" Width="184" Margin="30">
                 <Image.Source>
                     <BitmapImage DecodePixelWidth="200" UriSource="/Resources/2.png" />
@@ -41,5 +39,6 @@
                 </Button.Content>
             </Button>
         </StackPanel>
+        <Image HorizontalAlignment="Left" Height="414" Margin="339,35,0,0" VerticalAlignment="Top" Width="346"/>
     </Grid>
 </Window>

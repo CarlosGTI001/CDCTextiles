@@ -6,12 +6,77 @@
         xmlns:local="clr-namespace:CDCT.Views"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:vm="clr-namespace:CDCT.Models"
-         mc:Ignorable="d" Height="700" Width="1350">
-    <UserControl.DataContext>
-        <vm:PedidosModel/>
-    </UserControl.DataContext>
+         xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" Height="700" Width="1350"
+             
+             >
     <Grid Background="White">
-        <Grid/>
+        <Label Content="Recepcion de Pedidos" Margin="24,25,988,641" Style="{DynamicResource TextTopBar}" Foreground="#FF050505" FontSize="20px"/>
+        <GridSplitter Foreground="#FF050505" HorizontalAlignment="Left" Height="214" Margin="131,-43,0,0" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5" Background="Black">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="486,121,0,0" VerticalAlignment="Top" Height="36" Width="47" FontSize="20" FontFamily="Fuentes/#Ubuntu">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel>
+                <icons:PackIconMaterialDesign Kind="Search" Height="24" Width="20"/>
+            </WrapPanel>
+        </Button>
+        <TextBox MaxLength="10" HorizontalAlignment="Left" Margin="192,126,0,0" TextWrapping="Wrap" Text="CDC-010101" VerticalAlignment="Top" Width="270" FontFamily="Fuentes/#Ubuntu" FontSize="20"/>
+        <Label HorizontalAlignment="Left" Margin="15,120,0,547" Content="Codigo de Cliente" FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="554,120,0,0" VerticalAlignment="Top" Height="40" Width="191" FontSize="20" FontFamily="Fuentes/#Ubuntu">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel>
+                <icons:PackIconMaterialDesign Kind="Add" Height="23" Width="19" RenderTransformOrigin="0.607,0.556" VerticalAlignment="Center"/>
+                <Label Foreground="White" FontSize="20px" HorizontalAlignment="Center" Content="Nuevo Cliente" Height="32" Width="149"/>
+            </WrapPanel>
+        </Button>
+        <Grid Margin="14,175,7,367">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="217*"/>
+                <ColumnDefinition Width="152*"/>
+                <ColumnDefinition Width="224*"/>
+                <ColumnDefinition Width="597*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="87*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Nombre" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <TextBox Grid.Row="0" Grid.Column="1" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="Apellido" FontSize="20" FontFamily="Fuentes/#Ubuntu" Margin="15,0,4,0"/>
+            <TextBox Grid.Row="0" Grid.Column="3" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <Label Grid.Row="1" Margin="0,10,0,0" Grid.Column="0" Content="Direccion" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <TextBox Grid.Row="1" Margin="0,10,0,56" Grid.RowSpan="3" Grid.ColumnSpan="3" Grid.Column="1" AcceptsReturn="True" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <Label Grid.Row="3" Margin="0,10,0,13" Grid.Column ="0" Content="Telefono" FontSize="20" FontFamily="Fuentes/#Ubuntu"></Label>
+            <TextBox Grid.Row="3" Margin="0,10,0,14" Grid.Column="1" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <Label Grid.Row="3" Margin="15,10,0,14" Grid.Column="2" FontSize="20" FontFamily="Fuentes/#Ubuntu" Content="Correo"/>
+            <TextBox Grid.Row="3" Margin="0,10,0,14" Grid.Column="3" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+        </Grid>
+
     </Grid>
 
     <!--<StackPanel Orientation="Vertical"

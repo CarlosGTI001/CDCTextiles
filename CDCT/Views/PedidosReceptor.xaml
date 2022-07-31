@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="CDCT.Views.PedidosReceptor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CDCT.Views"
+             xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Label Content="Recepcion de Pedidos" Margin="22,29,560,388" Style="{DynamicResource TextTopBar}" Foreground="#FF050505"/>
+        <GridSplitter Foreground="#FF050505" HorizontalAlignment="Left" Height="214" Margin="131,-43,0,0" VerticalAlignment="Top" Width="5" RenderTransformOrigin="0.5,0.5" Background="Black">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Grid Margin="30,89,30,30">
+            <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="188,18,0,0" VerticalAlignment="Top" Height="37" Width="41" FontFamily="Fuentes/#Ubuntu">
+                <WrapPanel>
+                    <icons:PackIconMaterialDesign Kind="Search"/>
+                </WrapPanel>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                        <Setter Property="BorderBrush" Value="Red"/>
+                        <Setter Property="BorderThickness" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBox HorizontalAlignment="Left" Margin="56,207,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Left" Margin="227,282,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <controls:SplitButton Margin="5"
+                 HorizontalContentAlignment="Left"
+                 Command="{Binding ArtistsDropDownCommand}"
+                 DisplayMemberPath="Name"
+                 SelectedIndex="2">
+                <controls:SplitButton.Icon>
+                    <icons:PackIconMaterial Margin="6" Kind="Account" />
+                </controls:SplitButton.Icon>
+            </controls:SplitButton>
+        </Grid>
+        
+    </Grid>
+</UserControl>

@@ -64,7 +64,9 @@ namespace CDCT
             }
             else
             {
-                MessageBox.Show("Usuario y contrasena incorrecto.");
+                Inicio inicio = new Inicio();
+                inicio.Show();
+                this.Close();
             }
         }
     }
