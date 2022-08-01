@@ -25,12 +25,12 @@ namespace CDCT
         public Login()
         {
             InitializeComponent();
-            Exit.Click += (s, e) => winmgr.cerrar(Application.Current);
-            Exit.MouseEnter += (s, e) => Exit.Foreground = Brushes.Black;
-            Exit.MouseLeave += (s, e) => Exit.Foreground = Brushes.White;
-            Minimice.Click += (s, e) => WindowState = WindowState.Minimized;
-            Minimice.MouseEnter += (s, e) => Minimice.Foreground = Brushes.Black;
-            Minimice.MouseLeave += (s, e) => Minimice.Foreground = Brushes.White;  
+            Cancelar.Click += (s, e) => winmgr.cerrar(Application.Current);
+            iniciar.MouseEnter += (s, e) => iniciar.Foreground = Brushes.Black;
+            iniciar.MouseLeave += (s, e) => iniciar.Foreground = Brushes.White;
+            Cancelar.MouseEnter += (s, e) => Cancelar.Foreground = Brushes.Black;
+            Cancelar.MouseLeave += (s, e) => Cancelar.Foreground = Brushes.White;
+            
             User.PreviewMouseDown += (s, e) =>
             {
                 if (mouseDownUser == false)

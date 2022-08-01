@@ -115,15 +115,17 @@
         </Style>
         
         <DataTemplate x:Key="NavigationDataTemplate">
-            <iconPacks:PackIconMaterialDesign x:Name="MenuItemIcon" VerticalAlignment="Center" 
+            <iconPacks:PackIconMaterial x:Name="MenuItemIcon" VerticalAlignment="Center" 
                                               HorizontalAlignment="Center" Margin="14"/>
             <DataTemplate.Triggers>
                 <DataTrigger Binding="{Binding}" Value="Dashboard">
-                    
-                    <Setter TargetName="MenuItemIcon" Property="Kind" Value="Dashboard"/>
+                    <Setter TargetName="MenuItemIcon" Property="Kind" Value="ViewDashboard"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding}" Value="Pedidos">
                     <Setter TargetName="MenuItemIcon" Property="Kind" Value="Archive"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding}" Value="Rastreo">
+                    <Setter TargetName="MenuItemIcon" Property="Kind" Value="MapMarker"/>
                 </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>
@@ -131,6 +133,7 @@
         <x:Array x:Key="NavigationMenuItems" Type="system:String">
             <system:String>Dashboard</system:String>
             <system:String>Pedidos</system:String>
+            <system:String>Rastreo</system:String>
         </x:Array>
 
         <DataTemplate x:Key="DashboardViewTemplate">
@@ -138,6 +141,9 @@
         </DataTemplate>
         <DataTemplate x:Key="PedidosViewTemplate">
             <Views:Pedidos/>
+        </DataTemplate>
+        <DataTemplate x:Key="RastreoViewTemplate">
+            <Views:Rastreo/>
         </DataTemplate>
     </Application.Resources>
        

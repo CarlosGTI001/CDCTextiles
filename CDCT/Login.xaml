@@ -19,13 +19,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="35">
-            <StackPanel Name ="StackX" Height="35" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button x:Name="Minimice" Width="35" Background="#33BFFF" Content="-" Foreground="White" FontSize="30" FontWeight="Bold"/>
-                <Button x:Name="Exit" Width="35" Background="#FF3333" Content="X" Foreground="White" FontSize="20" FontWeight="Bold"/>
-            </StackPanel>
-        </Grid>
-        <StackPanel Margin="-1,35,0,-1" HorizontalAlignment="Left" Width="337">
+        <StackPanel Margin="-1,21,0,-45" HorizontalAlignment="Left" Width="337">
             <Image Height="182" Width="184" Margin="30">
                 <Image.Source>
                     <BitmapImage DecodePixelWidth="200" UriSource="/Resources/2.png" />
@@ -33,12 +27,20 @@
             </Image>
             <TextBox TextWrapping="Wrap" Text="Usuario" FontSize="20" Width="164" Height="29" Name="User"/>
             <PasswordBox Password="Contraseña" PasswordChar="*"  FontSize="20"  Width="164" Height="29" Margin="0,10,0,0" Name="Pass"/>
-            <Button Name="iniciar" Margin="80, 35, 80, 0" Width="100" Height="30" Background="#FF0D2738" Foreground="White" FontWeight="Bold" FontSize="17">
-                <Button.Content>
-                    Login
-                </Button.Content>
-            </Button>
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical">
+                <Button Name="iniciar" Margin="0,10,0,0" Width="164" Height="30" Background="#FF0D2738" Foreground="White" FontWeight="Bold" FontSize="17">
+                    <Button.Content>
+                        Login
+                    </Button.Content>
+                </Button>
+                <Button Name="Cancelar" Margin="0,10,0,0" Width="164" Height="30" Background="#FF0D2738" Foreground="White" FontWeight="Bold" FontSize="17">
+                    <Button.Content>
+                        Cancelar
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
         </StackPanel>
-        <Image HorizontalAlignment="Left" Height="414" Margin="339,35,0,0" VerticalAlignment="Top" Width="346"/>
+        <Image HorizontalAlignment="Left" Height="456" Margin="339,0,0,0" VerticalAlignment="Center" Width="346" Source="/Resources/logintela.jpg" Stretch="UniformToFill" />
     </Grid>
 </Window>

@@ -28,10 +28,10 @@
                              Value="Pedidos">
                     <Setter Property="ContentTemplate" Value="{StaticResource PedidosViewTemplate}"/>
                 </DataTrigger>
-                <!--<DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
-                             Value="Cloud">
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
+                             Value="Rastreo">
                     <Setter Property="ContentTemplate" Value="{StaticResource RastreoViewTemplate}"/>
-                </DataTrigger>-->
+                </DataTrigger>
             </Style.Triggers>
         </Style>
 
@@ -46,18 +46,20 @@
     <Grid>
 
         <Grid x:Name="ListBox">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <ContentControl x:Name="Contenido"  Style="{StaticResource NavigationContentStyle}" Margin="2,48,1,-1" Grid.Column="1" Foreground="White"/>
             <ListBox x:Name="NavigationMenuListBox"
                  Style="{StaticResource NavigationListBoxStyle}"
                  ItemContainerStyle="{DynamicResource NavigationListBoxItemStyle}"
                  ItemTemplate="{DynamicResource NavigationDataTemplate}"
                  ItemsSource="{StaticResource NavigationMenuItems}" Margin="0,50,0,0" SelectionChanged="NavigationMenuListBox_SelectionChanged"/>
-
-            <ContentControl x:Name="Contenido"  Style="{StaticResource NavigationContentStyle}" Margin="2,48,1,-1" Grid.Column="1" Foreground="White"/>
         </Grid>
         <Grid x:Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="52" Margin="0,-2,0,0">
             <TextBlock Text="{Binding title, Mode=TwoWay}" Style="{DynamicResource TextTopBar}"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
