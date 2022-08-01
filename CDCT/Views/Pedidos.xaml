@@ -12,8 +12,9 @@
              mc:Ignorable="d" Height="700" Width="1350"
              
              >
+    
     <Grid Background="White">
-
+        
         <Label Content="Recepcion de Pedidos" Margin="24,25,988,641" Style="{DynamicResource TextTopBar}" Foreground="#FF050505" FontSize="20px"/>
         <GridSplitter Foreground="#FF050505" HorizontalAlignment="Left" Height="214" Margin="131,-43,0,0" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5" Background="Black">
             <GridSplitter.RenderTransform>

@@ -5,46 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CDCT.Views"
              xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:vm="clr-namespace:CDCT.Models"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1300" Background="White">
-
+    <UserControl.DataContext>
+        <vm:RastreoPedido/>
+    </UserControl.DataContext>
     <Grid Margin="0,1,0,1">
-        <ProgressBar ValueChanged="BarraEstatus_ValueChanged"  x:Name="BarraEstatus" Height="44"  VerticalAlignment="Top" Margin="151,321,525,0" BorderBrush="White" Background="White" Value="20" SmallChange="0"/>
+
+        <StackPanel Margin="907,26,0,0" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left" Width="275" Height="370">
+            <Label Foreground="Black"  Content="Detalle del Pedido" FontFamily="Fuentes/#Ubunto" FontSize="20"  Margin="20" Width="173"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Codigo cliente:"  FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+                    <Label Content="{Binding Path=ClienteID, Mode=TwoWay}"  FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Foreground="Black"  Content="Cliente:" FontFamily="Fuentes/#Ubunto" FontSize="20" />
+                    <Label x:Name="Nombre"  Foreground="Black"  Content="{Binding Path=ClienteNombre, Mode=TwoWay}" FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+                    <Label x:Name="Apellido"  Foreground="Black"  Content="{Binding Path=ClienteApellido, Mode=TwoWay}" FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+                </StackPanel>
+                
+            </StackPanel>
+
+        <ProgressBar x:Name="BarraEstatus" Height="44"  VerticalAlignment="Top" Margin="151,321,525,0" BorderBrush="White" Background="White" Value="0" SmallChange="10"/>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="64,242,0,0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <Border Name="BorderPedido" Background="White" Margin="50,50,50,10" BorderBrush="Red" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
+                <Border x:Name="BorderPedido" Background="White" Margin="50,50,50,10" BorderBrush="Red" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
                     <icons:PackIconMaterial x:Name="Pedido" 
                         Kind="ClipboardListOutline" Foreground="Red" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
-                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center">Generado</Label>
+                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center" Content="Generado"/>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <Border Name="BorderPreparando" Background="White" Margin="50,50,50,10"  BorderBrush="#FFD97C0F" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
+                <Border x:Name="BorderPreparando" Background="White" Margin="50,50,50,10"  BorderBrush="#FFD97C0F" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
                     <icons:PackIconMaterial x:Name="Preparando" 
                         Kind="ScissorsCutting" Foreground="#FFD97C0F" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center">Procesando</Label>
+                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center" Content="Procesando"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <Border Name="BorderEnviado" Background="White" Margin="50,50,50,10"  BorderBrush="#FFB7C617" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
+                <Border x:Name="BorderEnviado" Background="White" Margin="50,50,50,10"  BorderBrush="#FFB7C617" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
                     <icons:PackIconMaterial x:Name="Enviado" 
                             Kind="CubeSend" Foreground="#FFB7C617" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center">Enviado</Label>
+                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center" Content="Enviado"/>
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <Border Name="BorderEntregado" Background="White" Margin="50,50,50,10"  BorderBrush="Green" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
+                <Border x:Name="BorderEntregado" Background="White" Margin="50,50,50,10"  BorderBrush="Green" CornerRadius="100" BorderThickness="5" Height="100" Width="100">
                     <icons:PackIconMaterial x:Name="Entregado" 
                             Kind="CheckAll" Foreground="Green" Width="70" Height="70" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 </Border>
-                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center">Entregado</Label>
+                <Label FontFamily="Fuentes/#Ubuntu" FontSize="20" HorizontalAlignment="Center" Content="Entregado"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Margin="256,139,567,472" Orientation="Horizontal">
             <Label VerticalAlignment="Center" Foreground="Black"  Content="Codigo de Rastreo" FontFamily="Fuentes/#Ubunto" FontSize="20" Margin="0,0,20,0"/>
-            <TextBox  MaxLength="10"  TextWrapping="Wrap" Text="CDC0001" VerticalAlignment="Center" Width="180" FontFamily="Fuentes/#Ubuntu" FontSize="20" FontStyle="Italic" Height="31" TextChanged="TextBox_TextChanged"/>
-            <Button Background="#FF0D2738" Foreground="White" Height="36" Width="47" FontSize="20" FontFamily="Fuentes/#Ubuntu" Margin="20,0,0,0">
+            <TextBox x:Name="RastreoCode"  MaxLength="10"  TextWrapping="Wrap" VerticalAlignment="Center" Width="180" FontFamily="Fuentes/#Ubuntu" FontSize="20" FontStyle="Italic" Height="31" TextChanged="TextBox_TextChanged"/>
+            <Button Background="#FF0D2738" Foreground="White" Height="36" Width="47" FontSize="20" FontFamily="Fuentes/#Ubuntu" Margin="20,0,0,0" Click="Button_Click">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -59,13 +77,15 @@
 
         </StackPanel>
         <GridSplitter HorizontalAlignment="Left" Height="694" Margin="852,0,0,0" VerticalAlignment="Center" Width="5" Background="#FF6C6464"/>
-        <Label Foreground="Black"  Content="Estado Detallado" FontFamily="Fuentes/#Ubunto" FontSize="20" Margin="1002,75,124,589"/>
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Margin="901,176,45,168">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="ListaEstatus" Margin="904,269,106,209" FontFamily="Ubuntu" FontSize="20" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            
         </ListView>
+            <!--<ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Estatus" Width="120" DisplayMemberBinding="{Binding}" />
+                    <GridViewColumn Header="Fecha" Width="50" DisplayMemberBinding="{Binding}" />
+                    <GridViewColumn Header="Firma" Width="150" DisplayMemberBinding="{Binding}" />
+                </GridView>
+            </ListView.View>-->
     </Grid>
 </UserControl>

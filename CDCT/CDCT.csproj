@@ -249,6 +249,7 @@
     <Compile Include="Models\Estadopedidos.cs" />
     <Compile Include="Models\PedidosDetalle.cs" />
     <Compile Include="Models\PedidosModel.cs" />
+    <Compile Include="Models\Rastreo.cs" />
     <Compile Include="Views\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
