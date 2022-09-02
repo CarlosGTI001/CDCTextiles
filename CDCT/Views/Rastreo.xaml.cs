@@ -32,23 +32,23 @@ namespace CDCT.Views
             detalle.Firma = "Carlos Toribio";
             detalleRastreo.Add(detalle);
 
-            detalle1.RastreoID = "CDC0001";
-            detalle1.RastreoEstatus = "Procesado";
-            detalle1.RastreoFecha = new DateTime(2022, 07, 23, 08, 10, 00);
-            detalle1.Firma = "Carlos Toribio";
-            detalleRastreo.Add(detalle1);
+            //detalle1.RastreoID = "CDC0001";
+            //detalle1.RastreoEstatus = "Procesado";
+            //detalle1.RastreoFecha = new DateTime(2022, 07, 23, 08, 10, 00);
+            //detalle1.Firma = "Carlos Toribio";
+            //detalleRastreo.Add(detalle1);
 
-            detalle2.RastreoID = "CDC0001";
-            detalle2.RastreoEstatus = "Enviado";
-            detalle2.RastreoFecha = new DateTime(2022, 07, 24, 09, 10, 00);
-            detalle2.Firma = "Carlos Toribio";
-            detalleRastreo.Add(detalle2);
+            //detalle2.RastreoID = "CDC0001";
+            //detalle2.RastreoEstatus = "Enviado";
+            //detalle2.RastreoFecha = new DateTime(2022, 07, 24, 09, 10, 00);
+            //detalle2.Firma = "Carlos Toribio";
+            //detalleRastreo.Add(detalle2);
 
-            detalle3.RastreoID = "CDC0001";
-            detalle3.RastreoEstatus = "Entregado";
-            detalle3.RastreoFecha = new DateTime(2022, 07, 24, 10, 10, 00);
-            detalle3.Firma = "Carlos Toribio";
-            detalleRastreo.Add(detalle3);
+            //detalle3.RastreoID = "CDC0001";
+            //detalle3.RastreoEstatus = "Entregado";
+            //detalle3.RastreoFecha = new DateTime(2022, 07, 24, 10, 10, 00);
+            //detalle3.Firma = "Carlos Toribio";
+            //detalleRastreo.Add(detalle3);
 
             detalle0.RastreoID = "CDC0002";
             detalle0.RastreoEstatus = "Generado";
@@ -139,7 +139,7 @@ namespace CDCT.Views
             {
                 //BarraEstatus.Value = 20;
                 BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFFF0000");
-                Duration duration = new Duration(TimeSpan.FromSeconds(3));
+                Duration duration = new Duration(TimeSpan.FromSeconds(1));
                 DoubleAnimation doubleAnimation = new DoubleAnimation(20, duration);
                 BarraEstatus.BeginAnimation(ProgressBar.ValueProperty, doubleAnimation);
             }
@@ -147,26 +147,30 @@ namespace CDCT.Views
             if (detalleRastreo.Where(a => a.RastreoID == RastreoCode.Text).Count() == 2)
             {
                 //BarraEstatus.Value = 50;
-                BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFD97C0F");
-                Duration duration = new Duration(TimeSpan.FromSeconds(3));
+                
+                Duration duration = new Duration(TimeSpan.FromSeconds(1));
                 DoubleAnimation doubleAnimation = new DoubleAnimation(50, duration);
                 BarraEstatus.BeginAnimation(ProgressBar.ValueProperty, doubleAnimation);
+                BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFD97C0F");
             }
             if (detalleRastreo.Where(a => a.RastreoID == RastreoCode.Text).Count() == 3)
             {
                 //BarraEstatus.Value = 82;
-                BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFB7C617");
-                Duration duration = new Duration(TimeSpan.FromSeconds(3));
-                DoubleAnimation doubleAnimation = new DoubleAnimation(20, duration);
+                Duration duration = new Duration(TimeSpan.FromSeconds(1));
+                DoubleAnimation doubleAnimation = new DoubleAnimation(82, duration);
+
                 BarraEstatus.BeginAnimation(ProgressBar.ValueProperty, doubleAnimation);
+                BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFB7C617");
+
             }
             if (detalleRastreo.Where(a => a.RastreoID == RastreoCode.Text).Count() == 4)
             {
                 //BarraEstatus.Value = 100;
+                Duration duration = new Duration(TimeSpan.FromSeconds(1));
+                DoubleAnimation doubleAnimation = new DoubleAnimation(100, duration);
+                BarraEstatus.BeginAnimation(ProgressBar.ValueProperty, doubleAnimation); 
                 BarraEstatus.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF008000");
-                Duration duration = new Duration(TimeSpan.FromSeconds(3));
-                DoubleAnimation doubleAnimation = new DoubleAnimation(20, duration);
-                BarraEstatus.BeginAnimation(ProgressBar.ValueProperty, doubleAnimation);
+
             }
         }
     }

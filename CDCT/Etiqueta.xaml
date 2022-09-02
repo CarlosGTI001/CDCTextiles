@@ -1,0 +1,108 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDCT.Helper"
+        xmlns:views="clr-namespace:CDCT.Views"
+        xmlns:Hamburger="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
+        xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        x:Class="CDCT.Etiqueta"
+        mc:Ignorable="d"
+        Title="Inicio" Height="776" Width="630"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="White"
+    >
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <Style x:Key="NavigationContentStyle" TargetType="ContentControl">
+            <Setter Property="ContentTemplate" Value="{StaticResource DashboardViewTemplate}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}"
+                             Value="Pedidos">
+                    <Setter Property="ContentTemplate" Value="{StaticResource PedidosViewTemplate}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=NavigationMenuListBox, Path=SelectedItem}" 
+                             Value="Rastreo">
+                    <Setter Property="ContentTemplate" Value="{StaticResource RastreoViewTemplate}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ButtonCorner">
+            <Setter Property="Border.CornerRadius" Value="8,8,8,8" />
+        </Style>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50"/>
+    </WindowChrome.WindowChrome>
+
+    <Grid HorizontalAlignment="Center" Width="778" Height="975" VerticalAlignment="Top">
+        <Grid x:Name="GridX" VerticalAlignment="Top" Background="#FF0D2738" Height="52" Margin="0,-2,0,0">
+            <TextBlock Style="{DynamicResource TextTopBar}"  VerticalAlignment="Center" HorizontalAlignment="Center"><Run Language="es-es" Text="Generador de Etiqueta"/></TextBlock>
+            <!--Text="Dashboard"-->
+            <StackPanel x:Name ="StackX" Margin="0,0,10,0" Height="35" WindowChrome.IsHitTestVisibleInChrome="True" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button x:Name="Minimice" Width="35" Background="#33BFFF" Content="-" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,0,4,0"/>
+                <Button x:Name="Exit" Width="35" Background="#FF3333" Content="X" Foreground="White" FontSize="20" FontWeight="Bold"/>
+            </StackPanel>
+            <Button ToolTip="Icon" Style="{DynamicResource TabButton}" Background="#FF060606" Margin="1200,-7,93,-10">
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+                <WrapPanel>
+                    <icons:PackIconMaterialDesign x:Name="MenuItemIcon" VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" Kind="AccountCircle" Foreground="White" Width="40" Height="40"/>
+                </WrapPanel>
+
+            </Button>
+        </Grid>
+        <TextBlock Style="{DynamicResource TextTopBar}" Foreground="Black" FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="268,77,0,0"><Run Language="es-es" Text="Etiqueta de Envio"/></TextBlock>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="406,652,0,0" Width="208" FontSize="20" FontFamily="Fuentes/#Ubuntu" Click="Button_Click" Height="73" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <icons:PackIconMaterialDesign Kind="Print" Height="37" Width="33" Margin="0,4,0,1"/>
+                <Label Content="Imprimir" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Button>
+        <Image x:Name="picture3" HorizontalAlignment="Left" Height="494" Margin="209,133,0,0" VerticalAlignment="Top" Width="363" Source="C:\Users\CarlosGTI001\Downloads\etiqueta.png"/>
+        <Button Background="#FF0D2738" Foreground="White"  HorizontalAlignment="Left" Margin="182,648,0,0" Width="208" FontSize="20" FontFamily="Fuentes/#Ubuntu" Height="73" VerticalAlignment="Top" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <icons:PackIconMaterialDesign Kind="Cancel" Height="31" Width="35" Margin="0,4,0,1"/>
+                <Label Content="Cerrar" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </WrapPanel>
+        </Button>
+
+        <!--<Grid>
+            
+                <Hamburger:HamburgerMenu Margin="0,34,0,0" HorizontalAlignment="Left" MenuIconColor="Black" Background="#33BFFF">
+                <Hamburger:HamburgerMenuItem Text="Dashboard">
+                    <icons:PackIconMaterialDesign>
+                        
+                    </icons:PackIconMaterialDesign>
+                </Hamburger:HamburgerMenuItem>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+                <Hamburger:HamburgerMenuItem Text="Dashboard"/>
+            </Hamburger:HamburgerMenu>
+        </Grid>-->
+    </Grid>
+</Window>

@@ -1,12 +1,130 @@
-﻿<UserControl x:Class="CDCT.Views.PedidosFabrica"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CDCT.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDCT.Views"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:vm="clr-namespace:CDCT.Models"
+         xmlns:icons="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="CDCT.Views.PedidosFabrica"
+             mc:Ignorable="d" Height="700" Width="1350"
+             >
+
+    <Grid Background="White">
+
+        <Label Content="Despacho de Pedidos a Empacador" Margin="24,25,988,641" Style="{DynamicResource TextTopBar}" Foreground="#FF050505" FontSize="20px"/>
+        <GridSplitter Foreground="#FF050505" HorizontalAlignment="Left" Height="336" Margin="192,-104,0,0" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5" Background="Black">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="486,121,0,0" VerticalAlignment="Top" Height="36" Width="47" FontSize="20" FontFamily="Fuentes/#Ubuntu">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel>
+                <icons:PackIconMaterialDesign Kind="Search" Height="24" Width="20"/>
+            </WrapPanel>
+        </Button>
+        <TextBox MaxLength="10" HorizontalAlignment="Left" Margin="192,126,0,0" TextWrapping="Wrap" Text="CDC-010101" VerticalAlignment="Top" Width="270" FontFamily="Fuentes/#Ubuntu" FontSize="20"/>
+        <Label HorizontalAlignment="Left" Margin="15,120,0,547" Content="Codigo de Pedido
+               " FontFamily="Fuentes/#Ubunto" FontSize="20"/>
+        <Grid Margin="14,175,7,367">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="139*"/>
+                <ColumnDefinition Width="217*"/>
+                <ColumnDefinition Width="152*"/>
+                <ColumnDefinition Width="224*"/>
+                <ColumnDefinition Width="597*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="37*"/>
+                <RowDefinition Height="87*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Margin="0,10,0,0" Grid.Column="0" Content="Observaciones" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+            <TextBox Grid.Row="1" Margin="0,10,471,19" Grid.RowSpan="3" Grid.ColumnSpan="4" Grid.Column="1" AcceptsReturn="True" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+        </Grid>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,381,543,73" FontSize="20" HorizontalAlignment="Right" Width="786"/>
+        <Label Content="Ordenes" Margin="26,336,986,330" Style="{DynamicResource TextTopBar}" Foreground="#FF050505" FontSize="20px"/>
+        <GridSplitter Foreground="#FF050505" HorizontalAlignment="Left" Height="214" Margin="133,268,0,0" VerticalAlignment="Top" Width="2" RenderTransformOrigin="0.5,0.5" Background="Black">
+            <GridSplitter.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GridSplitter.RenderTransform>
+        </GridSplitter>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="929,560,0,0" VerticalAlignment="Top" Height="69" Width="274" FontSize="20" FontFamily="Fuentes/#Ubuntu" Click="Button_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel>
+                <icons:PackIconMaterialDesign Kind="Check" Height="23" Width="19" RenderTransformOrigin="0.607,0.556" VerticalAlignment="Center"/>
+                <Label Foreground="White" FontSize="20px" HorizontalAlignment="Center" Content="Enviar Orden a Empacar
+                       " Height="32" Width="223"/>
+            </WrapPanel>
+        </Button>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="1010,483,0,0" VerticalAlignment="Top" Height="55" Width="186" FontSize="20" FontFamily="Fuentes/#Ubuntu" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel>
+                <icons:PackIconMaterialDesign Kind="Add" Height="23" Width="19" RenderTransformOrigin="0.607,0.556" VerticalAlignment="Center"/>
+                <Label Foreground="White" FontSize="20px" HorizontalAlignment="Center" Content="Subir Imagen" Height="32" Width="140"/>
+            </WrapPanel>
+        </Button>
+        <Image x:Name="picture1" HorizontalAlignment="Left" Height="337" Source="/Views/telapedido.jpg" Margin="967,137,0,0" VerticalAlignment="Top" Width="220"/>
+        <Label Margin="931,70,165,596" Content="Foto de Pedido Terminado" FontSize="20" FontFamily="Fuentes/#Ubuntu"/>
+        <Button Background="#FF0D2738" Foreground="White" HorizontalAlignment="Left" Margin="550,121,0,0" VerticalAlignment="Top" Height="36" Width="205" FontSize="20" FontFamily="Fuentes/#Ubuntu">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                    <Setter Property="BorderThickness" Value="4"/>
+                </Style>
+            </Button.Resources>
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <icons:PackIconMaterialDesign Kind="Search" Height="24" Width="20" Margin="0,4,0,1"/>
+                <Label Content="Escanear Codigo" Foreground="White" />
+            </WrapPanel>
+        </Button>
+
     </Grid>
+
+    <!--<StackPanel Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <iconPacks:PackIconMaterialDesign HorizontalAlignment="Center" 
+                                              Foreground="{StaticResource PrimaryDarkBrush}"
+                                              Width="100" Height="100"
+                                              Kind="Cloud"/>
+
+            <TextBlock FontSize="40" FontWeight="Bold" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="{StaticResource PrimaryDarkBrush}"
+                       Text="{Binding title}"/>
+        </StackPanel>-->
 </UserControl>
